@@ -6,6 +6,7 @@ import psutil
 from monitor.cpu import get_cpu_usage
 from monitor.memory import get_memory_usage
 from monitor.process import list_processes
+from monitor.disk import get_disk_usage
 from db.database import insert_stats, fetch_history
 
 
@@ -73,6 +74,7 @@ def live_monitor():
 
             cpu = get_cpu_usage(interval=0.3)
             mem_used, mem_total = get_memory_usage()
+            disk = get_disk_usage()
             processes = list_processes()
 
             output = []
@@ -83,6 +85,9 @@ def live_monitor():
             output.append(f"CPU Usage: {cpu}%\n")
             output.append(
                 f"Memory: {mem_used // (1024 * 1024)}MB / {mem_total // (1024 * 1024)}MB\n"
+            )
+            output.append(
+                f"Disk: {disk['percent']}% ({disk['used']}GB / {disk['total']}GB)\n"
             )
 
             output.append("\nTop Processes:\n")
@@ -131,10 +136,11 @@ def log_stats():
         while True:
             cpu = get_cpu_usage(interval=0.5)
             mem_used, mem_total = get_memory_usage()
+            disk = get_disk_usage()
 
             insert_stats(cpu, mem_used, mem_total)
 
-            print(f"Logged: CPU {cpu}% | Memory {mem_used // (1024 * 1024)}MB")
+            print(f"Logged: CPU {cpu}% | Memory {mem_used // (1024 * 1024)}MB | Disk {disk['percent']}%")
             time.sleep(2)
 
     except KeyboardInterrupt:
