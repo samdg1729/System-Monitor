@@ -2,17 +2,20 @@
 
 Simple CLI-based system monitor.
 
-## Run
+## Setup and Run
 
 ```bash
+git clone https://github.com/samdg1729/System-Monitor.git
+cd System-Monitor/sysmon
+pip install -r requirements.txt
 python main.py live
 ```
 
 ## Other Commands
 
 ```bash
-python main.py log       # log system stats to database
-python main.py history   # view logged stats
+python main.py log       # log system stats
+python main.py history   # view logs
 ```
 
 ## Controls (live mode)
@@ -22,14 +25,8 @@ python main.py history   # view logged stats
 * `+` → faster
 * `-` → slower
 
-## Requirements
-
-```bash
-pip install psutil
-```
-
 ## Notes
 
-* Cross-platform (Windows + Linux)
+* Cross-platform (Windows and Linux)
 * Uses SQLite (`sysmon.db`) for logging
-* Run from this directory (root of project)
+* Run commands from the project root directory
