@@ -19,8 +19,8 @@ python main.py history   # view logged stats
 
 * q → quit
 * r → refresh
-* * → faster
-* * → slower
+* + → faster
+* - → slower
 
 ## Requirements
 
