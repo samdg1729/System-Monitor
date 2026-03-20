@@ -11,16 +11,23 @@ python main.py live
 ## Other Commands
 
 ```bash
-python main.py log       # log system stats to database
-python main.py history   # view logged stats
+python main.py log       # log system stats
+python main.py history   # view logs
 ```
 
-## Controls (live mode)
+## Shortcut (optional)
+
+```bash
+./sysmon live        # Linux/macOS
+.\sysmon.bat live    # Windows
+```
+
+## Controls
 
 * q → quit
 * r → refresh
-* * → faster
-* * → slower
+* `+` → faster
+* `-` → slower
 
 ## Requirements
 
@@ -30,6 +37,7 @@ pip install psutil
 
 ## Notes
 
-* Cross-platform (Windows + Linux)
-* Uses SQLite (`sysmon.db`) for logging
-* Run from this directory (root of project)
+* Works on Windows and Linux
+* Uses SQLite (`sysmon.db`)
+* Run from the project root directory
+
