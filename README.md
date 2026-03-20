@@ -31,7 +31,6 @@ python main.py history   # view logs
 * r → refresh
 * `+` → faster
 * `-` → slower
-<<<<<<< HEAD
 
 ## Requirements
 
@@ -41,15 +40,6 @@ pip install psutil
 
 ## Notes
 
-* Works on Windows and Linux
-* Uses SQLite (`sysmon.db`)
-* Run from the project root directory
-
-=======
-
-## Notes
-
 * Cross-platform (Windows and Linux)
 * Uses SQLite (`sysmon.db`) for logging
 * Run commands from the project root directory
->>>>>>> 86a5e51ac628e61cb6d3e79e6552aecba0f0142b
